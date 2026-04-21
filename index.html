@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Alexa</title>
+    <link rel="icon" href="img/oso.png" type="image/png">
+    <!-- Fuente bonita -->
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 🎵 Música -->
+<audio id="musica" src="img/Girls Like You.mp3"></audio>
+
+<!-- 💌 SOBRE INICIAL -->
+<div id="intro">
+    <img src="img/carta.png" 
+    alt="Sobre" 
+    class="sobre"
+    onclick="abrirInvitacion()"
+    >
+</div>
+
+
+
+
+
+<script>
+function abrirInvitacion() {
+    // Primero hacemos que el contenido sea visible antes de desplazar
+    let contenido = document.getElementById("contenido");
+    contenido.style.display = "block";
+    
+    // Aseguramos que la página esté arriba del todo
+    window.scrollTo(0, 0);
+
+    // Reproducir música
+    let audio = document.getElementById("musica");
+    audio.play();
+
+    // Ocultar intro con fade
+    let intro = document.getElementById("intro");
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+        intro.style.display = "none";
+        // Eliminamos el salto forzando el scroll al inicio del contenedor
+        window.scrollTo(0, 0);
+    }, 800);
+}
+</script>
+
+
+<!-- 🎉 CONTENIDO -->
+<div id="contenido" style="display:none;">
+
+    <div class="container">
+        <img src="img/encabezado3.png" alt="Logo" class="logo">
+    </div>
+
+    <div class="cuerpo">
+        <img src="img/cuerpo4.png" alt="">
+    </div>
+        <!-- ⏳ CONTADOR -->
+        <div id="countdown">
+            <div><span id="dias">0</span><p>Días</p></div>
+            <div><span id="horas">0</span><p>Horas</p></div>
+            <div><span id="minutos">0</span><p>Min</p></div>
+            <div><span id="segundos">0</span><p>Seg</p></div>
+        </div>
+
+
+</div>
+
+<script>
+function entrar() {
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("contenido").style.display = "block";
+
+    let audio = document.getElementById("musica");
+    audio.play();
+}
+
+const fechaEvento = new Date("2026-07-28T13:00:00").getTime();
+
+const contador = setInterval(() => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaEvento - ahora;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+    const segundos = Math.floor((diferencia / 1000) % 60);
+
+    document.getElementById("dias").innerText = dias;
+    document.getElementById("horas").innerText = horas;
+    document.getElementById("minutos").innerText = minutos;
+    document.getElementById("segundos").innerText = segundos;
+
+    if (diferencia < 0) {
+        clearInterval(contador);
+        document.getElementById("countdown").innerHTML = "¡Ya es el gran día!";
+    }
+}, 1000);
+</script>
+<section class="invitacion-texto">
+
+    <div class="marco">
+
+        <p class="frase animar">
+            Con la bendición de Dios y <br>
+            en compañía de mis padres y <br>
+            padrinos
+        </p>
+
+        <h3 class="animar">Mis Padres</h3>
+        <p class="nombres animar">
+            Jesús Acevedo <br>
+            Laura Mozo
+        </p>
+
+        <h3 class="animar">Mis Padrinos</h3>
+        <p class="nombres animar">
+            Fredy Mateos  <br>
+            Mayra Vera
+        </p>
+
+        <p class="final animar">
+            Nos complace invitarte a ser <br>
+            parte de este gran día.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="eventos">
+<h1>Donde y cuando</h1>
+    <!-- CEREMONIA -->
+    <div class="card">
+        <h2>Ceremonia</h2>
+        <img src="img/iglesia.png" alt="Ceremonia">
+        <h3>Parroquia San Isidro Labrador </h3>
+        <p><strong>Cuándo:</strong> 25 de julio de 2026 13:00 hrs.</p>
+        <div class="botones">
+            <a href="https://www.google.com/maps/place/Parroquia+de+San+Isidro+Labrador/@18.8128889,-97.1978577,17z/data=!3m1!4b1!4m6!3m5!1s0x85c5048a1f8a54cd:0x662a7cba6ba317bc!8m2!3d18.8128838!4d-97.1952828!16s%2Fg%2F11bxfr13pp?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" 
+            class="btn">Ver mapa</a>
+    </div>
+    <!-- RECEPCIÓN -->
+    <div class="card">
+        <h2>Recepción</h2>
+        <img src="img/recepcion.png" alt="Recepción">
+        <h3>Salón Santa Lucía</h3>
+        <p><strong>Cuándo:</strong> 25 de julio de 2026 14:00 hrs.</p>
+        <div class="botones">
+            <a href="https://www.google.com/maps/place/Sal%C3%B3n+Santa+Luc%C3%ADa/@18.7880009,-97.2010493,17z/data=!3m1!4b1!4m6!3m5!1s0x85c5050cdad8527d:0xbf0c4b61a9ed36de!8m2!3d18.7879962!4d-97.1986544!16s%2Fg%2F11f60yt4nq?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" 
+            class="btn">Ver mapa</a>
+        </div>
+    </div>
+</section>
+
+<section class = 'itinerario'>
+    <h1>Itinerario</h1>
+    <div class="container">
+        <img src="img/itinerario.png" alt="Logo" class="logo">
+    </div>
+</section>
+
+<section class = 'codigo'>
+    <div class="container">
+        <img src="img/codigo.png" alt="Logo" class="logo">
+    </div>
+</section>
+
+
+<div class="background-invitacion">
+<div class="carousel-wrapper">
+    <h2 class="titulo-fotos">Fotos</h2>
+    <div class="carousel-container">
+        <button class="arrow prev" id="prevBtn">&#10094;</button>
+        
+        <div class="carousel-slide">
+            <img src="img/foto1.jpg" class="fade" alt="Foto 1">
+            <img src="img/foto7.jpg" class="fade" alt="Foto 7">
+            <img src="img/foto3.jpg" class="fade" alt="Foto 3">
+            <img src="img/foto4.jpg" class="fade" alt="Foto 4">
+            <img src="img/foto5.jpg" class="fade" alt="Foto 5">
+            <img src="img/foto6.jpg" class="fade" alt="Foto 6">
+        </div>
+
+        <button class="arrow next" id="nextBtn">&#10095;</button>
+    </div>
+</div>
+</div>
+
+
+
+<script>
+let currentIndex = 0;
+const slides = document.querySelectorAll(".carousel-slide img");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+
+function showSlide(index) {
+    // Si llegamos al final, volvemos al inicio
+    if (index >= slides.length) currentIndex = 0;
+    // Si retrocedemos del inicio, vamos al final
+    if (index < 0) currentIndex = slides.length - 1;
+
+    // Esconder todas las fotos
+    slides.forEach(img => img.style.display = "none");
+    
+    // Mostrar solo la foto actual
+    slides[currentIndex].style.display = "block";
+}
+
+// Eventos para los botones
+nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    showSlide(currentIndex);
+    resetTimer(); // Reinicia el tiempo si el usuario hace clic
+});
+
+prevBtn.addEventListener("click", () => {
+    currentIndex--;
+    showSlide(currentIndex);
+    resetTimer();
+});
+
+// Cambio automático (cada 4000ms = 4 segundos)
+let autoSwap = setInterval(() => {
+    currentIndex++;
+    showSlide(currentIndex);
+}, 4000);
+
+function resetTimer() {
+    clearInterval(autoSwap);
+    autoSwap = setInterval(() => {
+        currentIndex++;
+        showSlide(currentIndex);
+    }, 4000);
+}
+
+// Iniciar el carrusel
+showSlide(currentIndex);
+</script>
+
+
+
+
+
+
+<section class="regalos">
+
+    <h1>Regalos</h1>
+
+    <p class="texto">
+        Para mí tu presencia es el mejor regalo,<br>
+        pero si deseas obsequiarme algo,<br>
+        te sugiero la siguiente opción:
+    </p>
+
+    <img src="img/oso.png" alt="corazón" class="corazon">
+
+    <div class="opciones">
+
+        <!-- Liverpool -->
+        <a href="https://mesaderegalos.liverpool.com.mx/gestiondeeventos/listaderegalos/51983494" target="_blank" class="card-regalo">
+            <img src="img/liverpool.png" alt="Liverpool">
+            <span>Liverpool: 51983494</span>
+        </a>
+
+        <!-- Amazon -->
+        <a href="https://www.amazon.com.mx/registries/gl/owner-view/3144ZJ4HS4GB?ref_=gr_universal_landing_ggr" target="_blank" class="card-regalo">
+            <img src="img/amazon.png" alt="Amazon">
+            <span>Amazon</span>
+        </a>
+        <!-- Efectivo -->
+        <a href="#" class="card-regalo">
+            <img src="img/sobre.png" alt="Sobre">
+            <span>Sobre de efectivo</span>
+        </a>
+    </div>
+
+</section>
+<section class="confirmacion">
+
+    <img src="img/corazon1.png" alt="corazón" class="corazon">
+    <h1>Confirmar asistencia</h1>
+    <p>Por favor confirma tu asistencia con:</p>
+
+    <div class="botones-confirmacion">
+
+        <!-- MAMÁ -->
+        <a href="https://wa.me/5212722261509?text=Hola%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Alexa✨"
+           target="_blank" class="btn-confirmar">
+            Mamá
+        </a>
+
+        <!-- PAPÁ -->
+        <a href="https://wa.me/5212721725882?text=Hola%20confirmo%20mi%20asistencia%20a%20los%20XV%20años%20de%20Alexa✨"
+           target="_blank" class="btn-confirmar">
+            Papá
+        </a>
+
+    </div>
+
+</section>
+ <section class = "pie">
+        <p>&copy; 2026 Invitación Alexa </p>
+    </section>
+
+
+</body>
+</html>
