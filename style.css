@@ -1,3 +1,24 @@
+/* Este contenedor asegura que todo use el ancho de la pantalla sin desbordarse */
+.contenedor-principal {
+    width: 100%;
+    max-width: 100vw; /* Evita el scroll horizontal */
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent; /* Fondo transparente como pediste */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Seguridad extra para móviles */
+    position: relative;
+}
+body {
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'Parisienne', cursive;
+    background-color: #fff;
+}
 
 /* PANTALLA INICIAL */
 #intro {
@@ -80,11 +101,6 @@
     height: auto;
 }
 
-body {
-    margin: 0;
-    font-family: 'Parisienne', cursive;
-    background-color: #fff;
-}
 
 /* MODAL */
 #modal {
